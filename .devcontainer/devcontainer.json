@@ -1,0 +1,3 @@
+{
+  "postCreateCommand": "cat /workspaces/aoc24/.bashrc >> ~/.bashrc"
+}
