@@ -18,6 +18,20 @@ check_for_changes() {
   return 0
 }
 
+# Get the current branch name
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+if [ "$current_branch" == "main" ]; then
+  if check_for_changes; then
+    if /workspaces/aoc24/scripts/get_updates.sh; then
+      echo "Successfully pulled latest changes."
+      exit 0
+  else
+      echo "Error: You have made changes on main branch! Ask for help."
+      exit 1
+  fi
+fi
+
 if check_for_changes; then
   git checkout main
   echo "Pulling latest changes into 'main'..."

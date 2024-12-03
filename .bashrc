@@ -34,3 +34,4 @@ py() {
 
     python3 "$script_path"
 }
+
