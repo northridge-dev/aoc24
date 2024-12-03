@@ -1,5 +1,37 @@
 #!/bin/bash
 
+# Function to check for unstaged or uncommitted changes
+check_for_changes() {
+  # Check for unstaged changes
+  if ! git diff --quiet; then
+    echo "Unstaged changes detected. Please stage or discard them before switching branches."
+    return 1
+  fi
+
+  # Check for uncommitted changes
+  if ! git diff --cached --quiet; then
+    echo "Uncommitted changes detected. Please commit or stash them before switching branches."
+    return 1
+  fi
+
+  echo "No unstaged or uncommitted changes detected."
+  return 0
+}
+
+if check_for_changes; then
+  git checkout main
+  echo "Pulling latest changes into 'main'..."
+  if /workspaces/aoc24/scripts/get_updates.sh; then
+    echo "Successfully pulled latest changes."
+    exit 0
+  else
+    echo "Error: Failed to pull changes."
+    exit 1
+  fi
+fi
+
+
+
 # Default boilerplate commit message
 COMMIT_MESSAGE="quick save when switching to main"
 
