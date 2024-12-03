@@ -49,13 +49,13 @@ else
   exit 1
 fi
 
-# Success message
-echo "Branch '${BRANCH_NAME}' is ready. Start making your changes!"
-
 # Create files
 FILE1="/workspaces/aoc24/src/${STUDENT_DIRNAME}/${CHALLENGE_NUMBER}a.py"
 FILE2="/workspaces/aoc24/src/${STUDENT_DIRNAME}/${CHALLENGE_NUMBER}b.py"
-FILE2="/workspaces/aoc24/src/${STUDENT_DIRNAME}/input/${CHALLENGE_NUMBER}.txt"
+FILE3="/workspaces/aoc24/src/${STUDENT_DIRNAME}/input/${CHALLENGE_NUMBER}.txt"
 
 touch "$FILE1" "$FILE2" "$FILE3"
 echo "Created empty files: $FILE1, $FILE2 and $FILE3"
+
+# Success message
+echo "Branch '${BRANCH_NAME}' is ready. Start making your changes!"
