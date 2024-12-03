@@ -2,19 +2,19 @@
 
 # Function to display usage instructions
 function usage() {
-  echo "Usage: $0 <lastname> <challenge_number>"
-  echo "Example: $0 kruckenberg 1"
+  echo "Usage: $0 <challenge_number>"
+  echo "Example: $0 1"
   exit 1
 }
 
 # Check for the correct number of arguments
-if [ "$#" -ne 2 ]; then
+if [ "$#" -ne 1 ]; then
   usage
 fi
 
 # Extract username and task number from the arguments
-LASTNAME=$1
-CHALLENGE_NUMBER=$2
+STUDENT_DIRNAME=$LASTNAME
+CHALLENGE_NUMBER=$1
 
 # Validate that the task number is numeric
 if ! [[ $CHALLENGE_NUMBER =~ ^[0-9]+$ ]]; then
@@ -23,7 +23,7 @@ if ! [[ $CHALLENGE_NUMBER =~ ^[0-9]+$ ]]; then
 fi
 
 # Construct the branch name
-BRANCH_NAME="${LASTNAME}/day-${CHALLENGE_NUMBER}"
+BRANCH_NAME="${STUDENT_DIRNAME}/day-${CHALLENGE_NUMBER}"
 
 # Move to main
 git checkout main

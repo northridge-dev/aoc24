@@ -1,8 +1,9 @@
-from os.path import join
+import os 
 
 def readlines(inputFile):
-    input_dir = '/workspaces/aoc24/input'
-    path_to_input = join(input_dir, inputFile)
+    LASTNAME = os.environ.get('LASTNAME')
+    input_dir = f"/workspaces/aoc24/src/{LASTNAME}/input"
+    path_to_input = os.path.join(input_dir, inputFile)
     try:
         with open(path_to_input) as file:
             lines = [line.rstrip() for line in file]
