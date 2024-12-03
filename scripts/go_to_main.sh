@@ -26,9 +26,10 @@ if [ "$current_branch" == "main" ]; then
     if /workspaces/aoc24/scripts/get_updates.sh; then
       echo "Successfully pulled latest changes."
       exit 0
-  else
-      echo "Error: You have made changes on main branch! Ask for help."
-      exit 1
+    else
+        echo "Error: You have made changes on main branch! Ask for help."
+        exit 1
+    fi
   fi
 fi
 
