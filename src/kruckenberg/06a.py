@@ -62,10 +62,12 @@ class Guard:
             self.current_pos = next_pos
             return True
         
+    def simulate(self):
+        onmap = True
+        while onmap:
+            onmap = guard.move()
+        
         
 
 guard = Guard(map)
-
-onmap = True
-while onmap:
-    onmap = guard.move()
+guard.simulate()
